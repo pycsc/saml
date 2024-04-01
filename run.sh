@@ -7,7 +7,7 @@
 #    By: lucas <lucas@tsiaraso.com>                    +########+              #
 #                                                          +###+               #
 #    Created: 2024/04/01 10:35:43 by lucas                   ##+               #
-#    Updated: 2024/04/01 16:08:52 by lucas                   #+                #
+#    Updated: 2024/04/01 16:44:34 by lucas                   #+                #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ export FLASK_DEBUG=0
 if cd app; then
     FLASK_HOST="127.0.0.1" FLASK_PORT="30000" python main.py >app.log 2>&1 &
     app_pid=$!
+    echo "APP: $app_pid is running on http://127.0.0.1:30000/ ..."
     cd ..
 else
     echo "app directory not found."
@@ -52,6 +53,7 @@ fi
 if cd sp; then
     FLASK_HOST="127.0.0.1" FLASK_PORT="20000" python main.py >sp.log 2>&1 &
     sp_pid=$!
+    echo "SP: $sp_pid is running on http://127.0.0.1:20000/ ..."
     cd ..
 else
     echo "idp directory not found."
@@ -62,6 +64,7 @@ fi
 if cd idp; then
     FLASK_HOST="127.0.0.1" FLASK_PORT="11000" python main.py >idp.log 2>&1 &
     idp_pid=$!
+    echo "IDP: $idp_pid is running on http://127.0.0.1:11000/ ..."
     cd ..
 else
     echo "idp directory not found."
@@ -73,6 +76,7 @@ fi
 if cd dse; then
     FLASK_HOST="127.0.0.1" FLASK_PORT="10000" python main.py >dse.log 2>&1 &
     dse_pid=$!
+    echo "DSE: $dse_pid is running on http://127.0.0.1:10000/ ..."
     cd ..
 else
     echo "idp directory not found."
